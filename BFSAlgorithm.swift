@@ -22,10 +22,16 @@ class BFSAlgorithm: NSObject
 
     let startXY = (0, 0), targetXY = (3, 3)
     var minStep = 9999
-
-    let stepOptions = [(1, 2), (1, -2), (-1, 2), (-1, -2),
-                    (2, 1), (2, -1), (2, 1), (-2, 1)]
-
+    
+    let stepOptions = [(1, 2),
+                    (1, -2),
+                    (-1, 2),
+                    (-1, -2),
+                    (2, 1),
+                    (2, -1),
+                    (-2, 1),
+                    (-2, -1)]
+    
     var nodeToMove = [(Int, Int)]()
     var stepCount = 0
     
@@ -48,8 +54,14 @@ class BFSAlgorithm: NSObject
         {
             let currentXY = nodeToMove.first!
             nodeToMove.removeFirst()
+            stepCount = stepCount + 1
             if currentXY == targetXY
             {
+                for row in stepRecord
+                {
+                    print(row)
+                }
+                print(stepCount)
                 break
             }
             for step in stepOptions

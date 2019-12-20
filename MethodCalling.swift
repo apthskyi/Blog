@@ -29,3 +29,17 @@ extension MyStruct
     }
 }
 
+class TestMethodCalling
+{
+    func test()
+    {
+        let myStruct = MyStruct()
+        let proto: MyProtocol = myStruct
+        myStruct.extensionMethod()
+        myStruct.protocolMethod()
+
+        proto.extensionMethod()
+        proto.protocolMethod()
+    }
+}
+
